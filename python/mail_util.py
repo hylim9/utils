@@ -59,10 +59,8 @@ class MailUtil:
         reg = "^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"  # 유효성 검사를 위한 정규표현식
         if re.match(reg, to_mail):
             self.smtp.sendmail(my_account, to_mail, msg.as_string())
-            print("정상적으로 메일이 발송되었습니다.")
             logger.info("정상적으로 메일이 발송되었습니다.")
         else:
-            print("받으실 메일 주소를 정확히 입력하십시오.")
             logger.error("받으실 메일 주소를 정확히 입력하십시오.")
 
         # smtp 서버 연결 해제
